@@ -36,6 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AMT Web Interfaces\RemoteControlInterface.cs" />
+    <Compile Include="Discovery\NetworkDiscoveryManager.cs" />
     <Compile Include="Entities\RemoteControlInterfaceEnumrations.cs" />
     <Compile Include="Remote\AMTMachineRemoteControl.cs" />
     <Compile Include="Business Logic Layer\AMTPowerStateManager.cs" />

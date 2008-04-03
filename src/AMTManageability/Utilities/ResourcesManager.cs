@@ -14,6 +14,14 @@ namespace AMTManageability.Utilities
             }
         }
 
+        public static string AMTServerResponceHeader
+        {
+            get
+            {
+                return "Intel(R) Active Management Technology";
+            }
+        }
+
         
     }
 

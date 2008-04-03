@@ -173,7 +173,7 @@ namespace AMTManageability.Remote
 
         public void PowerDown_Async()
         {
-            //////dsadasd
+           
             remoteControlService.RemoteControlAsync(RemoteControlCommandType.PowerDown,
                                                     IanaOemNumber,
                                                     RemotSpecialCommandType.NOP, false,
@@ -195,6 +195,13 @@ namespace AMTManageability.Remote
         public void BeginGetMachiePowerState(AsyncCallback onCallBackDelegate, object asyncState)
         {
             remoteControlService.BeginGetSystemPowerState(onCallBackDelegate, asyncState);
+        }
+
+        public void Dispose()
+        {
+            remoteControlService.Dispose();
+            remoteControlService = null;
+            machine = null;
         }
     }
 }

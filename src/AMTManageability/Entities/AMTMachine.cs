@@ -12,18 +12,26 @@ namespace AMTManageability.Entities
     public class AMTMachine:Machine
     {
         #region "Properties"
-        private string amtVersion;
+        private int amtVersion;
+        private int amtRevMin;
         private string userName;
         private string password;
         #endregion
 
         #region "Setters & Getters"
 
-        public string AmtVersion
+        public int AmtVersion
         {
             get { return amtVersion; }
             set { amtVersion = value; }
         }
+
+        public int AmtRevMin
+        {
+            get { return amtRevMin; }
+            set { amtRevMin = value; }
+        }
+
 
         public string UserName
         {
