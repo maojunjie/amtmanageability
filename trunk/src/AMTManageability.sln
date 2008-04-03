@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMTManageability", "AMTManageability\AMTManageability.csproj", "{0C1CA3CD-028E-432D-8DC5-DBA4A4CCDEF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLLUnitTests", "DLLUnitTests\DLLUnitTests.csproj", "{6721091E-9330-4634-A517-86DAC4816C42}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0C1CA3CD-028E-432D-8DC5-DBA4A4CCDEF4} = {0C1CA3CD-028E-432D-8DC5-DBA4A4CCDEF4}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A2E7C4D7-3BBA-4C15-B918-D5FA1665951C}"
+	ProjectSection(SolutionItems) = preProject
+		AMTManageability.vsmdi = AMTManageability.vsmdi
+		localtestrun.testrunconfig = localtestrun.testrunconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTesting", "ConsoleTesting\ConsoleTesting.csproj", "{414FFAB6-0D89-401A-8213-3E78039C89CF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0C1CA3CD-028E-432D-8DC5-DBA4A4CCDEF4} = {0C1CA3CD-028E-432D-8DC5-DBA4A4CCDEF4}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = AMTManageability.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C1CA3CD-028E-432D-8DC5-DBA4A4CCDEF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C1CA3CD-028E-432D-8DC5-DBA4A4CCDEF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C1CA3CD-028E-432D-8DC5-DBA4A4CCDEF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C1CA3CD-028E-432D-8DC5-DBA4A4CCDEF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6721091E-9330-4634-A517-86DAC4816C42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6721091E-9330-4634-A517-86DAC4816C42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6721091E-9330-4634-A517-86DAC4816C42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6721091E-9330-4634-A517-86DAC4816C42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{414FFAB6-0D89-401A-8213-3E78039C89CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{414FFAB6-0D89-401A-8213-3E78039C89CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{414FFAB6-0D89-401A-8213-3E78039C89CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{414FFAB6-0D89-401A-8213-3E78039C89CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
