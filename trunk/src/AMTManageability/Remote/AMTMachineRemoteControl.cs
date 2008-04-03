@@ -173,7 +173,7 @@ namespace AMTManageability.Remote
 
         public void PowerDown_Async()
         {
-            
+            //////dsadasd
             remoteControlService.RemoteControlAsync(RemoteControlCommandType.PowerDown,
                                                     IanaOemNumber,
                                                     RemotSpecialCommandType.NOP, false,
