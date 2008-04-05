@@ -4,11 +4,32 @@ using System.Text;
 using AMTManageability.Remote;
 using AMTManageability.Entities;
 using System.Net;
+using AMTManageability.Discovery;
+using System.Threading;
 
 namespace ConsoleTesting
 {
     class Program
     {
+        private static IPAddress NextIPAddress(IPAddress address)
+        {
+            // copied from DTK 
+
+            byte[] ip = address.GetAddressBytes();
+            ip[ip.Length - 1]++;
+            bool carry = false;
+            carry = (ip[ip.Length - 1] == 0);
+            for (int i = ip.Length - 1; i > 0; i--)
+            {
+                if (carry)
+                {
+                    ip[i - 1]++;
+                    carry = (ip[i - 1] == 0);
+                }
+            }
+            return new IPAddress(ip);
+        }
+
         public static long GetAddressDiff(IPAddress a1, IPAddress a2)
         {
             byte[] b1 = a1.GetAddressBytes();
@@ -34,18 +55,70 @@ namespace ConsoleTesting
             return total + 1;
         }
 
+        public static void OnMachineDiscovery(AmtDiscoveryEvent e, AMTMachine machine)
+        {
+            if (e == AmtDiscoveryEvent.LaunchingDiscovery)
+                Console.WriteLine("DISCOVERY STARTED");
+
+            if (e == AmtDiscoveryEvent.DiscoveryFinished)
+                Console.WriteLine("DISCOVERY FINISHED");
+
+            if (e == AmtDiscoveryEvent.MachineFound)
+            {
+                Console.WriteLine("--------------");
+                Console.WriteLine("MAchine "+ machine.HostName);
+                Console.WriteLine("------------------");
+            }
+
+           
+        }
+
+        public static void IPRegression()
+        {
+            IPAddress s = IPAddress.Parse("9.255.255.100");
+
+            for (int i = 0; i < 300; i++)
+            {
+                Console.WriteLine(s.ToString ());
+                s = NextIPAddress(s);
+            }
+	{
+		 
+	}
+        }
+
+        public static void ThreadTest()
+        {
+            NetworkDiscovery d = new NetworkDiscovery(1);
+            d.OnDiscoveryEvent += new NetworkDiscovery.AmtDiscoveryEventHandler(OnMachineDiscovery);
+
+            string ip1 = "10.0.0.0";
+            string ip2 = "9.255.255.100";
+
+            IPAddress s = IPAddress.Parse(ip1);
+            IPAddress e = IPAddress.Parse("10.0.0.10");
+
+            d.ScanNetwork(s, e);
+            //d.Test();
+
+            Thread.Sleep(TimeSpan.FromSeconds(3));
+            while (d.IsRunning)
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(3));
+                Console.WriteLine("discoverd count " + d.AmtMachines.Count);
+            }
+
+           
+
+            
+        }
 
         static void Main(string[] args)
         {
             try
             {
-
-                IPAddress one = IPAddress.Parse("10.0.0.10");
-                IPAddress two = IPAddress.Parse("10.0.0.1");
-
-                long diff = GetAddressDiff(two, one);
-
-                Console.WriteLine(diff);
+                //IPRegression();
+                ThreadTest();
 
                 /**
                 AMTManageability.Discovery.NetworkDiscovery d = new AMTManageability.Discovery.NetworkDiscovery(1);
