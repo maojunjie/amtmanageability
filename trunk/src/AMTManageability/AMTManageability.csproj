@@ -36,7 +36,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AMT Web Interfaces\RemoteControlInterface.cs" />
-    <Compile Include="Discovery\NetworkDiscoveryManager.cs" />
+    <Compile Include="Discovery\DiscoveryEvents.cs" />
+    <Compile Include="Discovery\NetworkDiscovery.cs" />
     <Compile Include="Entities\RemoteControlInterfaceEnumrations.cs" />
     <Compile Include="Remote\AMTMachineRemoteControl.cs" />
     <Compile Include="Business Logic Layer\AMTPowerStateManager.cs" />
@@ -55,7 +56,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
-    <Compile Include="Test.cs" />
     <Compile Include="Utilities\ResourcesManager.cs" />
   </ItemGroup>
   <ItemGroup>
